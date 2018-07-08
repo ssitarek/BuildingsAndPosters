@@ -1,4 +1,5 @@
+pl\ssitarek\PostersOnBuildingsPointerListImpl.class
 pl\ssitarek\App.class
-pl\ssitarek\PostersOnBuildingsDivideAndWinImpl.class
-pl\ssitarek\Building.class
+pl\ssitarek\Element.class
+pl\ssitarek\SingleBuilding.class
 pl\ssitarek\PostersOnBuildings.class

@@ -11,17 +11,20 @@ public class App {
     public static void main(String[] args) {
 
         try {
-            PostersOnBuildingsDivideAndWinImpl postersOnBuildings = new PostersOnBuildingsDivideAndWinImpl();
+            PostersOnBuildingsPointerListImpl postersOnBuildings = new PostersOnBuildingsPointerListImpl();
+
+            postersOnBuildings.loadListFromFile(DEFAULT_FILE_NAME_IN);
 
             long millisTimeBeg = System.currentTimeMillis();
-            postersOnBuildings.loadListFromFile(DEFAULT_FILE_NAME_IN);
             postersOnBuildings.calculateNumberOfPosters();
-            postersOnBuildings.saveResultToFile(DEFAULT_FILE_NAME_OUT);
             long millisTimeEnd = System.currentTimeMillis();
             long diffTime = millisTimeEnd - millisTimeBeg;
-            System.out.println("result: " + postersOnBuildings.getNumberOfPosters());
-            System.out.println("Result has been saved to: " + DEFAULT_FILE_NAME_OUT);
-            System.out.println("Total operation time including load and save given in ms: " + diffTime);
+
+            postersOnBuildings.saveResultToFile(DEFAULT_FILE_NAME_OUT);
+            System.out.println(String.format("Loaded file: \"%s\"", DEFAULT_FILE_NAME_IN));
+            System.out.println(String.format("Number of posters: %d", postersOnBuildings.getNumberOfPosters()));
+            System.out.println(String.format("Result has been saved to: \"%s\"", DEFAULT_FILE_NAME_OUT));
+            System.out.println(String.format("Total operation time without load and save given in ms: %d", diffTime));
 
         } catch (FileNotFoundException ex) {
             System.out.println("Please Load Proper File");
