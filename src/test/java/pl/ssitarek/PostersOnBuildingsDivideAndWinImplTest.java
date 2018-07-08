@@ -33,7 +33,7 @@ public class PostersOnBuildingsDivideAndWinImplTest {
     @Test(expected = NumberFormatException.class)
     public void testWrongContentInFileName() throws FileNotFoundException {
 
-      postersOnBuildings.loadListFromFile("WrongContentPla.in");
+        postersOnBuildings.loadListFromFile("WrongContentPla.in");
     }
 
     @Test
@@ -259,7 +259,6 @@ public class PostersOnBuildingsDivideAndWinImplTest {
         buildingArrayList.add(building8);
         buildingArrayList.add(building9);
 
-
         postersOnBuildings.setBuildingArrayList(buildingArrayList);
 
         Assert.assertEquals(9, postersOnBuildings.getNumberOfBuildings());
@@ -267,14 +266,14 @@ public class PostersOnBuildingsDivideAndWinImplTest {
     }
 
     @Test
-    public void testTheTime(){
+    public void testPyramid01() {
 
         Building building1 = new Building(1, 1);
         Building building2 = new Building(1, 2);
-        Building building3 = new Building(2, 3);
-        Building building4 = new Building(2, 5);
-        Building building5 = new Building(1, 4);
-        Building building6 = new Building(1, 5);
+        Building building3 = new Building(1, 3);
+        Building building4 = new Building(1, 4);
+        Building building5 = new Building(1, 5);
+        Building building6 = new Building(1, 4);
         Building building7 = new Building(1, 3);
         Building building8 = new Building(1, 2);
         Building building9 = new Building(1, 1);
@@ -290,38 +289,396 @@ public class PostersOnBuildingsDivideAndWinImplTest {
         buildingArrayList.add(building8);
         buildingArrayList.add(building9);
 
+
         postersOnBuildings.setBuildingArrayList(buildingArrayList);
 
-        long millisTimeBeg = System.currentTimeMillis();
-        postersOnBuildings.calculateNumberOfPosters();
-        long millisTimeEnd = System.currentTimeMillis();
-        long diffTime = millisTimeEnd-millisTimeBeg;
-        Assert.assertTrue(diffTime<5000);
+        Assert.assertEquals(9, postersOnBuildings.getNumberOfBuildings());
+        Assert.assertEquals(5, postersOnBuildings.calculateNumberOfPosters());
     }
 
+    //section of tests of the singleBuildingVec files
     @Test
-    public void testTheTimePla10a() throws FileNotFoundException {
+    public void testPla0() throws FileNotFoundException {
 
-        postersOnBuildings.loadListFromFile("pla10a.in");
+        postersOnBuildings.loadListFromFile("pla0.in");
+        int expectedValue = 4;
+
         long millisTimeBeg = System.currentTimeMillis();
-        postersOnBuildings.calculateNumberOfPosters();
-
+        int result = postersOnBuildings.calculateNumberOfPosters();
         long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
         long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
 
+    @Test
+    public void testPla1a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla1a.in");
+        int expectedValue = 41;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla1b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla1b.in");
+        int expectedValue = 105;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla1c() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla1c.in");
+        int expectedValue = 1;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla2a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla2a.in");
+        int expectedValue = 718;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla2b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla2b.in");
+        int expectedValue = 662;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla2c() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla2c.in");
+        int expectedValue = 4;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla3a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla3a.in");
+        int expectedValue = 1190;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla3b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla3b.in");
+        int expectedValue = 2105;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla3c() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla3c.in");
+        int expectedValue = 1705;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla4a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla4a.in");
+        int expectedValue = 2201;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla4b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla4b.in");
+        int expectedValue = 3449;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla5a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla5a.in");
+        int expectedValue = 105834;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+
+    @Test
+    public void testPla5b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla5b.in");
+        int expectedValue = 107570;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime < 5000);
+    }
+/*
+    @Test
+    public void testPla6a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla6a.in");
+        int expectedValue = 122285;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
         Assert.assertTrue(diffTime<5000);
     }
 
     @Test
-    public void testTheTimePla9a() throws FileNotFoundException {
+    public void testPla6b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla6b.in");
+        int expectedValue = 130604;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla7a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla7a.in");
+        int expectedValue = 133315;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla7b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla7b.in");
+        int expectedValue = 149362;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla8a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla8a.in");
+        int expectedValue = 112754;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla8b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla8b.in");
+        int expectedValue = 150254;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla9a() throws FileNotFoundException {
 
         postersOnBuildings.loadListFromFile("pla9a.in");
+        int expectedValue = 174118;
+
         long millisTimeBeg = System.currentTimeMillis();
-        postersOnBuildings.calculateNumberOfPosters();
-
+        int result = postersOnBuildings.calculateNumberOfPosters();
         long millisTimeEnd = System.currentTimeMillis();
-        long diffTime = millisTimeEnd - millisTimeBeg;
 
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
         Assert.assertTrue(diffTime<5000);
     }
+
+    @Test
+    public void testPla9b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla9b.in");
+        int expectedValue = 148540;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla10a() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla10a.in");
+        int expectedValue = 159396;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+
+    @Test
+    public void testPla10b() throws FileNotFoundException {
+
+        postersOnBuildings.loadListFromFile("pla10b.in");
+        int expectedValue = 155393;
+
+        long millisTimeBeg = System.currentTimeMillis();
+        int result = postersOnBuildings.calculateNumberOfPosters();
+        long millisTimeEnd = System.currentTimeMillis();
+
+        Assert.assertEquals(expectedValue, result);
+
+        long diffTime = millisTimeEnd - millisTimeBeg;
+        Assert.assertTrue(diffTime<5000);
+    }
+    */
 }

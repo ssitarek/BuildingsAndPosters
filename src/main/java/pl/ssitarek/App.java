@@ -19,6 +19,7 @@ public class App {
             postersOnBuildings.saveResultToFile(DEFAULT_FILE_NAME_OUT);
             long millisTimeEnd = System.currentTimeMillis();
             long diffTime = millisTimeEnd - millisTimeBeg;
+            System.out.println("result: " + postersOnBuildings.getNumberOfPosters());
             System.out.println("Result has been saved to: " + DEFAULT_FILE_NAME_OUT);
             System.out.println("Total operation time including load and save given in ms: " + diffTime);
 

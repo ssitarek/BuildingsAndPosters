@@ -10,7 +10,6 @@ import java.util.Scanner;
 
 public class PostersOnBuildingsDivideAndWinImpl implements PostersOnBuildings {
 
-
     private int numberOfBuildings = 0;
     private int numberOfPosters = 0;
 
@@ -43,6 +42,10 @@ public class PostersOnBuildingsDivideAndWinImpl implements PostersOnBuildings {
         printWriter.close();
     }
 
+    /**
+     * calculate the total number of posters using divide and win method
+     */
+
     @Override
     public int calculateNumberOfPosters() {
 
@@ -53,8 +56,25 @@ public class PostersOnBuildingsDivideAndWinImpl implements PostersOnBuildings {
         if (numberOfBuildings == 1) {
             return 1;
         }
+        if (numberOfBuildings == 2) {
+            if (buildingArrayList.get(0).getHeight() != buildingArrayList.get(1).getHeight()) {
+                return 2;
+            }
+            return 1;
+        }
 
-        calculateNum(getAllBuildingHeights());
+
+        List<List<Integer>> listArrayList = new ArrayList<>();
+        listArrayList.add(getAllBuildingHeights());
+        while (listArrayList.size() != 0) {
+
+            List<List<Integer>> splittedHeightsList = splitTheList(listArrayList.get(0));
+            for (int i = 0; i < splittedHeightsList.size(); i++) {
+                listArrayList.add(splittedHeightsList.get(i));
+            }
+            listArrayList.remove(0);
+            numberOfPosters++;
+        }
         return numberOfPosters;
     }
 
@@ -73,60 +93,39 @@ public class PostersOnBuildingsDivideAndWinImpl implements PostersOnBuildings {
     }
 
     /**
-     * calculate the total number of posters using recursive method (divide and win)
-     * method should be implemented in case of at least one building exists
-     * this condition is checked in 'calculateNumberOfPosters' method
-     *
-     * @param inputHeightsList list of heights of neighbour buildings
-     */
-    private void calculateNum(List<Integer> inputHeightsList) {
-
-        //increment total number of calling
-        numberOfPosters++;
-
-        //in case of the last part of one building do exit
-        //the poster has been counted then due to the line: numberOfPosters++
-        if (inputHeightsList.size() == 1) {
-            return;
-        }
-
-        List<List<Integer>> splittedHeightsList = splitList(inputHeightsList);
-        for (int i = 0; i < splittedHeightsList.size(); i++) {
-            calculateNum(splittedHeightsList.get(i));
-        }
-    }
-
-    /**
      * split a list of buildings into the parts, the condition is that their heights are higher than minimum value
      *
      * @param inputList list of neighbour buildings heights
      * @return list of the top of the buildings
      */
-    private List<List<Integer>> splitList(List<Integer> inputList) {
+    private List<List<Integer>> splitTheList(List<Integer> inputList) {
 
         List<List<Integer>> splitedList = new ArrayList<>();
-
         int minOfList = Collections.min(inputList);
         int ind = inputList.indexOf(minOfList);
 
         while (ind != -1) {
-
             if (ind != 0) {
                 List<Integer> subList = inputList.subList(0, ind);
                 splitedList.add(subList);
+
             }
             inputList = inputList.subList(ind + 1, inputList.size());
             ind = inputList.indexOf(minOfList);
+        }
+        if ((ind == -1) && (inputList.size() >= 1)) {
+            splitedList.add(inputList);
 
-            if ((ind == -1) && (inputList.size() >= 1)) {
-                splitedList.add(inputList);
-            }
         }
         return splitedList;
     }
 
     public int getNumberOfBuildings() {
         return numberOfBuildings;
+    }
+
+    public int getNumberOfPosters() {
+        return numberOfPosters;
     }
 
     public void setBuildingArrayList(List<Building> buildingArrayList) {
